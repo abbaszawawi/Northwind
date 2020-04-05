@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +28,7 @@ namespace Northwind.API
             services.AddControllers();
             services.AddOptions();
             services.AddSwagger(Configuration);
+            services.AddApiVersioning(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +66,20 @@ namespace Northwind.API
                         Title = settings.SwaggerDoc.OpenApiInfo.Title,
                         Version = settings.SwaggerDoc.OpenApiInfo.Version
                     });
+            });
+        }
+
+        public static void AddApiVersioning(this IServiceCollection services, IConfiguration Configuration)
+        {
+            services.AddApiVersioning(c =>
+            {
+                c.DefaultApiVersion = new ApiVersion(1, 1);
+                c.AssumeDefaultVersionWhenUnspecified = true;
+                c.ReportApiVersions = true;
+                c.ApiVersionReader = ApiVersionReader.Combine(
+                    new QueryStringApiVersionReader("v"),
+                    new HeaderApiVersionReader("X-Version")
+                    );
             });
         }
     }
