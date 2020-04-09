@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
+    <RootNamespace>Northwind.WebUI.IntegrationTests</RootNamespace>
+    <AssemblyName>Northwind.WebUI.IntegrationTests</AssemblyName>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 

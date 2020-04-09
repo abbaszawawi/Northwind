@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Northwind.WebUI</RootNamespace>
+    <AssemblyName>Northwind.WebUI</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

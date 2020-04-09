@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
-using Persistence.Properties;
+using Northwind.Persistence.Properties;
 
-namespace Persistence.Migrations
+namespace Northwind.Persistence.Migrations
 {
     public partial class SeedData : Migration
     {

@@ -4,10 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Northwind.Persistence;
 
-namespace Persistence.Migrations
+namespace Northwind.Persistence.Migrations
 {
     [DbContext(typeof(NorthwindDbContext))]
     [Migration("20200409083007_SeedData")]
